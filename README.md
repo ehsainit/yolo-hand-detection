@@ -33,7 +33,7 @@ Information about the training parameters you can find in the custom-yolov4 conf
 
 The model was trained for until there was no significant change in the average loss value (ca. 12k iterations).
 
-![alt text](test-images/yolotraining.png)
+![plot](images/yolotraining.png)
 
 ## License
 
