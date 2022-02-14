@@ -35,6 +35,8 @@ The model was trained for until there was no significant change in the average l
 
 ![plot](images/yolotraining.png)
 
+
+
 ## License
 
 This project is licensed under the [MIT License] License - see the LICENSE.md file for details
