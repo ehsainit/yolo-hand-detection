@@ -1,36 +1,37 @@
-# YoloV4 Hand Detector 
+# YoloV4 Hand Detector
 
-Pre-trained Hand Detector based-on YOLOv4 neural network.
+Pre-trained Hand Detector based-on YOLOv4 architecture.
 
 ## Description
 
-There are already existing pre-trained hand detector in the wild, most of them based on MobileNetSSD networks and some 
-of them are based on Yolo neural network architecture. However, the vast majority(yolo-based) do not include information about the 
-implementation used to train, thus making it harder to fine-tune/transfer-learning.
+There are already existing pre-trained hand detector on the internet. Most of them based on MobileNetSSD networks and some
+of them are based on YOLO architecture. However, the majority (YOLO-based) are not available with proper documentation, making it hard to fine-tune/transfer-learning.
 
-Hence, the goals of this model are:
+The goals of this project are:
 - To offer stable hand detector.
-- To give others the ability to fine-tune or transfer learning and hopefully save them time :)
+- To give others the ability to fine-tune/ a pre-trained and hopefully save them effort and time :)
 
 
-## Dataset 
+## Dataset
 
-Yolov4 was trained on custom [EgoHand](http://vision.soic.indiana.edu/projects/egohands/) dataset mainly.
+Yolov4 was trained on custom [EgoHands](http://vision.soic.indiana.edu/projects/egohands/) dataset mainly.
 
-This dataset was basically meant for detecting complex egocentric hands interactions, i.e each interaction is a class.
-Nevertheless, my main purpose was detecting the hand as an object from egocentric/pseudo-egocentric point-of-view,
-so I used a labeled Egohand dataset [Roboflow EgoHand](https://public.roboflow.com/object-detection/hands/1) and modified
-the Ids in annotation files (text files) to be suitable for only one class. (just one Id - 0). In addition, I splitted
-the data into train/validation sets (90% , 10%).
+EgoHands is basically meant for detecting complex egocentric hands interactions, i.e each interaction is a class.
+
+My goal is to detect the hand as an object from egocentric/pseudo-egocentric point-of-view.
+
+An annotated version of Egohand dataset is available for 4 activity detection [Roboflow EgoHands](https://public.roboflow.com/object-detection/hands/1)
+For the task of hand/no-hand, a modification of the annotation files was required. Instead of having 4 class, only one is needed for all hand instances across all images.
+The training set consists of 90% of the total images number.
 
 ### Training
 
 In order to train YOLOv4, the [DarkNet](https://github.com/AlexeyAB/darknet) by Alexey Bochkovskiy was built and the
 instructions as specified in the docs were followed.
 
-Information about the training parameters you can find in the custom-yolov4 configuration file.
+Information about the training parameters you can find in the custom-yolov4 configuration file under the models directory.
 
-The training went on for ca. 24 hours (ca. 12k iterations) on a single Tesla V100( on Colab).
+The model was trained for until there was no significant change in the average loss value (ca. 12k iterations).
 
 ![alt text](test-images/yolotraining.png)
 
