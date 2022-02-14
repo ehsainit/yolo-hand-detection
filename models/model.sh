@@ -1,1 +1,1 @@
-wget https://github.com/ehsainit/yolov4-egocetric-hand-detector/releases/hand-detetor.weights
+wget https://github.com/ehsainit/yolov4-egocetric-hand-detector/releases/download/master/hand-detetor.weights
